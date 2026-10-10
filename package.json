@@ -1,0 +1,14 @@
+{
+  "name": "northline",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shipment control plane with a local delivery path: API, tests, image, metrics, Kubernetes, and Terraform.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test"
+  }
+}

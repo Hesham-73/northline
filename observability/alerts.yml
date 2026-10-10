@@ -1,0 +1,17 @@
+groups:
+  - name: northline
+    rules:
+      - alert: NorthlineDown
+        expr: northline_up == 0
+        for: 2m
+        labels:
+          severity: page
+        annotations:
+          summary: Northline is not serving
+      - alert: NorthlineHttpErrors
+        expr: sum(rate(northline_http_requests_total{status=~"5.."}[5m])) > 0.1
+        for: 5m
+        labels:
+          severity: ticket
+        annotations:
+          summary: Northline is returning server errors
